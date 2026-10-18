@@ -1,0 +1,249 @@
+/* Projects archive (/portfolio/). Shares tokens, header, footer, page banner and breakpoints with
+   app/globals.css. Card values follow the source theme's "portfolio-style2". */
+
+.pf-archive {
+  padding-top: 90px;
+  padding-bottom: 100px;
+}
+
+/* ---------- filters ---------- */
+
+.pf-filters {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) auto;
+  gap: 18px;
+  align-items: end;
+  padding: 26px 28px 28px;
+  border-top: 3px solid var(--gold);
+  background: var(--white);
+  box-shadow: 0 18px 40px rgba(23, 62, 98, 0.12);
+  transition: opacity 0.2s;
+}
+.pf-filters[aria-busy="true"] {
+  opacity: 0.7;
+}
+/* .search-label is defined by the rental page; keep a copy scoped here */
+.pf-filters .search-label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--gold);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  line-height: 1.2;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.pf-field select {
+  width: 100%;
+  height: 50px;
+  padding: 0 32px 0 14px;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  background: #fafafa url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23bda588' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") no-repeat right 12px center / 12px;
+  color: var(--blue);
+  font: inherit;
+  font-size: 14px;
+  font-weight: 400;
+  appearance: none;
+  cursor: pointer;
+  transition: border-color 0.2s, background-color 0.2s;
+}
+.pf-field select:hover {
+  border-color: var(--gold);
+  background-color: var(--white);
+}
+.pf-field select:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 1px;
+}
+.pf-submit {
+  min-height: 50px;
+  padding: 0 34px;
+  border: 0;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.pf-submit:hover {
+  background: #ac8d68;
+}
+
+.pf-count {
+  margin: 34px 0 22px;
+  font-size: 14px;
+}
+.pf-empty {
+  padding: 40px 0;
+  text-align: center;
+}
+.pf-empty a {
+  color: var(--blue);
+  text-decoration: underline;
+}
+
+/* ---------- cards ---------- */
+
+.pf-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 30px;
+}
+.pf-grid > li {
+  display: flex;
+}
+.pf-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border-radius: 3px;
+  background: var(--white);
+  box-shadow: 0 7px 35px rgba(0, 0, 0, 0.07);
+  transition: box-shadow 0.3s, transform 0.3s;
+}
+.pf-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(23, 62, 98, 0.14);
+}
+.pf-card-img {
+  overflow: hidden;
+  aspect-ratio: 2 / 1;
+  border-radius: 3px 3px 0 0;
+  background: var(--placeholder);
+}
+.pf-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s;
+}
+.pf-card:hover .pf-card-img img {
+  transform: scale(1.05);
+}
+.pf-card-body {
+  flex: 1;
+  padding: 20px 40px 40px;
+}
+.pf-card-title {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 30px;
+  color: var(--blue);
+}
+/* the title link covers the whole card */
+.pf-card-title a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+.pf-card-title a:focus-visible {
+  outline: none;
+}
+.pf-card:has(.pf-card-title a:focus-visible) {
+  outline: 2px solid var(--blue);
+  outline-offset: 3px;
+}
+.pf-card:hover .pf-card-title {
+  color: var(--gold);
+}
+.pf-card-loc {
+  margin-top: 2px;
+  font-size: 14px;
+}
+.pf-card-list {
+  margin: 20px 0 0;
+}
+.pf-card-list div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 5px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  font-size: 14px;
+}
+.pf-card-list div:last-child {
+  border-bottom: 0;
+}
+.pf-card-list dt {
+  color: #000;
+  font-weight: 500;
+}
+.pf-card-list dd {
+  margin: 0;
+  text-align: right;
+}
+
+/* ---------- pagination ---------- */
+
+.pf-pagination {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px;
+  padding-top: 50px;
+}
+.pf-page {
+  display: inline-grid;
+  place-items: center;
+  width: 2.5em;
+  height: 2.5em;
+  border-radius: 50%;
+  background: #f8f8f8;
+  color: var(--blue);
+  font-size: 16px;
+  line-height: 1;
+  transition: background-color 0.25s, color 0.25s;
+}
+a.pf-page:hover,
+a.pf-page:focus-visible,
+.pf-page.is-current {
+  background: var(--gold);
+  color: var(--white);
+}
+
+/* ============ tablet ============ */
+
+@media (max-width: 1199px) {
+  .pf-archive {
+    padding-top: 70px;
+    padding-bottom: 80px;
+  }
+  .pf-filters {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .pf-submit {
+    grid-column: 1 / -1;
+  }
+  .pf-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+  }
+  .pf-card-body {
+    padding: 20px 28px 30px;
+  }
+}
+
+/* ============ mobile ============ */
+
+@media (max-width: 767px) {
+  .pf-archive {
+    padding-top: 48px;
+    padding-bottom: 60px;
+  }
+  .pf-filters {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    padding: 20px 18px 22px;
+  }
+  .pf-grid {
+    grid-template-columns: 1fr;
+  }
+  .pf-card-body {
+    padding: 18px 22px 26px;
+  }
+  .pf-card-title {
+    font-size: 20px;
+  }
+}

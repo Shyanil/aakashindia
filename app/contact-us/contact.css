@@ -1,0 +1,185 @@
+/* Contact Us page. Shares tokens, header, footer, page banner, lead form and breakpoints
+   with app/globals.css. */
+
+.ct-title {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 1.25;
+  color: var(--blue);
+}
+
+/* ---------- head office + map ---------- */
+
+.ct-office {
+  display: grid;
+  grid-template-columns: minmax(0, 37fr) minmax(0, 63fr);
+  gap: 50px;
+  align-items: center;
+  padding-top: 100px;
+  padding-bottom: 50px;
+}
+.ct-details .kicker {
+  margin-bottom: 6px;
+}
+.ct-list {
+  display: grid;
+  gap: 14px;
+  margin-top: 40px;
+  font-style: normal;
+  font-size: 15px;
+  line-height: 1.7;
+}
+.ct-list p {
+  display: grid;
+  grid-template-columns: 30px minmax(0, 1fr);
+  align-items: start;
+}
+.ct-list svg {
+  width: 18px;
+  height: 18px;
+  margin-top: 3px;
+  color: var(--gold);
+}
+.ct-list span {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.ct-list a {
+  color: var(--text);
+  overflow-wrap: anywhere;
+}
+.ct-list a:hover {
+  color: var(--gold);
+}
+.ct-list .ct-directions {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 4px;
+  color: var(--blue);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.ct-list .ct-directions svg {
+  width: 12px;
+  height: 12px;
+  margin: 0;
+  color: currentColor;
+}
+.ct-list .ct-directions:hover {
+  color: #ac8d68;
+}
+.ct-map {
+  overflow: hidden;
+  background: var(--placeholder);
+}
+.ct-map iframe {
+  display: block;
+  width: 100%;
+  height: 518px;
+  border: 0;
+}
+
+/* ---------- write to us ---------- */
+
+.ct-write {
+  padding-top: 50px;
+  padding-bottom: 100px;
+}
+.ct-write-box {
+  display: grid;
+  grid-template-columns: minmax(0, 45fr) minmax(0, 55fr);
+  gap: 80px;
+  padding: 50px 60px;
+  background: var(--white);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.07);
+}
+.ct-write-image img {
+  width: 100%;
+  height: 100%;
+  min-height: 420px;
+  object-fit: cover;
+}
+.ct-write-form {
+  align-self: center;
+}
+.ct-write-form .kicker {
+  margin-bottom: 6px;
+}
+.ct-write-form .ct-title {
+  margin-bottom: 36px;
+}
+.ct-write .lead-form {
+  gap: 22px;
+  padding: 0;
+  border: 0;
+  font-size: 14px;
+}
+.ct-write .lead-form input:not([type="checkbox"]):not([type="file"]) {
+  height: 48px;
+}
+.ct-write .lead-form input,
+.ct-write .lead-form textarea {
+  padding-inline: 16px;
+  font-size: 14px;
+}
+.ct-write .lead-submit {
+  min-height: 52px;
+}
+.ct-write .lead-submit:hover {
+  background: var(--blue);
+}
+
+/* ============ tablet ============ */
+
+@media (max-width: 1199px) {
+  .ct-title {
+    font-size: 34px;
+  }
+  .ct-office {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding-top: 80px;
+  }
+  .ct-list {
+    margin-top: 28px;
+  }
+  .ct-write {
+    padding-bottom: 80px;
+  }
+  .ct-write-box {
+    grid-template-columns: 1fr;
+    padding: 40px 30px;
+  }
+  .ct-write-image {
+    display: none; /* hidden on tablet and mobile, as on the source */
+  }
+}
+
+/* ============ mobile ============ */
+
+@media (max-width: 767px) {
+  .ct-title {
+    font-size: 30px;
+  }
+  .ct-office {
+    padding-top: 56px;
+  }
+  .ct-map iframe {
+    height: 360px;
+  }
+  .ct-write {
+    padding-top: 30px;
+    padding-bottom: 60px;
+  }
+  .ct-write-box {
+    padding: 28px 18px;
+  }
+  .ct-write-form .ct-title {
+    font-size: 26px;
+  }
+}

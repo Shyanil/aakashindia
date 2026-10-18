@@ -1,0 +1,224 @@
+/* Upcoming Projects (/upcoming-project/). Shares tokens, header, footer, page banner and breakpoints
+   with app/globals.css, and the project card (.pf-*) with app/portfolio/portfolio.css. */
+
+.up-title {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 1.25;
+  color: var(--blue);
+  text-align: center;
+}
+.up-head {
+  margin-bottom: 40px;
+  text-align: center;
+}
+.up-head p {
+  margin-top: 12px;
+}
+
+/* Highlights, promo and location are currently hidden (not rendered by page.tsx). */
+
+/* ---------- highlights ---------- */
+
+.up-highlights {
+  padding: 80px 0 0;
+}
+.up-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 30px;
+  text-align: center;
+}
+.up-stat {
+  display: flex;
+  flex-direction: column-reverse;
+  padding: 34px 20px;
+  border-top: 3px solid var(--gold);
+  background: var(--panel);
+}
+.up-stat dd {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: 58px;
+  line-height: 1.05;
+  color: var(--gold);
+}
+.up-stat dt {
+  margin-top: 10px;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  line-height: 1.4;
+  color: var(--blue);
+  text-transform: uppercase;
+}
+
+/* ---------- promo ---------- */
+
+.up-promo {
+  padding: 90px 0 0;
+}
+.up-promo-image {
+  margin-top: 40px;
+  overflow: hidden;
+  border-radius: 3px;
+  background: var(--placeholder);
+  box-shadow: 0 7px 35px rgba(0, 0, 0, 0.07);
+}
+.up-promo-image img {
+  width: 100%;
+  height: auto;
+}
+
+/* ---------- location ---------- */
+
+.up-location {
+  padding: 90px 0 0;
+}
+.up-map {
+  position: relative;
+  aspect-ratio: 16 / 7;
+  overflow: hidden;
+  border-radius: 3px;
+  background: var(--placeholder);
+}
+.up-map iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+.up-map-card {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  max-width: calc(100% - 40px);
+  padding: 16px 20px;
+  border-left: 3px solid var(--gold);
+  background: var(--white);
+  box-shadow: 0 10px 30px rgba(23, 62, 98, 0.18);
+  color: var(--text);
+  font-size: 14px;
+  transition: background-color 0.2s;
+}
+.up-map-card strong {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: 20px;
+  color: var(--blue);
+}
+.up-map-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 6px;
+  color: var(--gold);
+  font-size: 12px;
+  font-weight: 500;
+}
+.up-map-card:hover .up-map-cta {
+  color: #ac8d68;
+}
+.up-map-card:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
+}
+
+/* ---------- project cards ---------- */
+
+.up-projects {
+  padding: 90px 0 100px;
+}
+/* Two equal boxes: same column width, same 16:9 image frame (both sources are ~16:9, so nothing
+   important is cropped), and stretched to the taller card's height, also when stacked on phones. */
+.up-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-auto-rows: 1fr;
+  align-items: stretch;
+}
+.up-grid .pf-card-img {
+  aspect-ratio: 16 / 9;
+}
+.up-grid .pf-card-img img {
+  display: block;
+}
+.up-grid .pf-card-list dd {
+  max-width: 60%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .up-map-card {
+    transition: none;
+  }
+}
+
+/* ============ tablet ============ */
+
+@media (max-width: 1199px) {
+  .up-title {
+    font-size: 34px;
+  }
+  .up-highlights {
+    padding-top: 60px;
+  }
+  .up-promo,
+  .up-location {
+    padding-top: 70px;
+  }
+  .up-projects {
+    padding: 70px 0 80px;
+  }
+  .up-stat dd {
+    font-size: 46px;
+  }
+  .up-map {
+    aspect-ratio: 4 / 3;
+  }
+}
+
+/* ============ mobile ============ */
+
+@media (max-width: 767px) {
+  .up-title {
+    font-size: 28px;
+  }
+  .up-highlights {
+    padding-top: 44px;
+  }
+  .up-stats {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .up-stat {
+    padding: 24px 16px;
+  }
+  .up-promo,
+  .up-location {
+    padding-top: 54px;
+  }
+  .up-promo-image {
+    margin-top: 28px;
+  }
+  .up-head {
+    margin-bottom: 28px;
+  }
+  .up-map {
+    aspect-ratio: 1 / 1;
+  }
+  .up-map-card {
+    top: 12px;
+    left: 12px;
+    max-width: calc(100% - 24px);
+    padding: 12px 14px;
+  }
+  .up-projects {
+    padding: 54px 0 60px;
+  }
+  .up-grid {
+    grid-template-columns: 1fr;
+  }
+}
